@@ -3,7 +3,7 @@ import Home from "./Components/Home";
 
 function App() {
   return (
-    <div className="w-screen">
+    <div className=""> 
       <Routes>
         <Route path="/" element={<Home/>} />
       </Routes>
