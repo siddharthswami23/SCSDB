@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import noimg from "../../assests/noimg.webp";
 
 function TopNav() {
+  
   document.title = "SCSDB | MOVIE APP";
   const [query, setquery] = useState("");
   //console.log(query);
@@ -52,7 +53,7 @@ function TopNav() {
                 src={search.backdrop_path || search.profile_path ? `https://image.tmdb.org/t/p/original/${search.backdrop_path || search.profile_path}` : noimg}
                 alt=""
               />
-              <span className="text-2xl font-semibold">
+              <span className="text-3xl font-bold">
                 {search.original_title || search.title || search.original_name}
               </span>
             </Link>

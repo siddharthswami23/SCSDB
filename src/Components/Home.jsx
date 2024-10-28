@@ -1,7 +1,6 @@
 import SideNav from "./Partials/SideNav";
 import TopNav from "./Partials/TopNav";
 
-
 function Home() {
   return (
     <div className="bg-[#1F1E24] w-screen h-screen flex">
