@@ -7,6 +7,7 @@ function SideNav() {
         <i className="text-[#6556CD] ri-tv-fill mr-3"></i>
         <span className="">SCSDB</span>
       </h1>
+      <hr className="my-5" />
       <h1 className="text-2xl font-semibold my-5 text-white">New Feed</h1>
       <nav className="flex flex-col">
         <Link className="p-5 duration-300  hover:bg-[#6565CD] hover:text-white rounded text-zinc-400 font-regular text-xl">
