@@ -5,7 +5,7 @@ const TopNav = () => {
   const [query, setquery] = useState("");
   console.log(query);
   return (
-    <div className="w-full h-[10vh] relative flex items-center justify-start ml-[15%]">
+    <div className="w-full h-[10vh] relative flex items-center justify-start pl-[15%]">
       <i className="ri-search-line text-zinc-400 text-4xl cursor-pointer"></i>
       <input
         onChange={(e) => setquery(e.target.value)}
@@ -23,7 +23,7 @@ const TopNav = () => {
         ""
       )}
 
-      <div className="search-box absolute top-[90%] left-[4%] w-[50%] max-h-[50vh] bg-white overflow-y-auto rounded-md">
+      <div className="search-box absolute top-[90%] left-[19%] w-[42%] max-h-[50vh] bg-white overflow-y-auto rounded-md">
         <Link className=" w-full h-[10vh] bg-zinc-200 flex items-center justify-center border-b-2 border-zinc-100 text-3xl text-zinc-700 font-semibold hover:text-zinc-900 hover:bg-zinc-300">
           <img src="" alt="" />
           <p>hello</p>
