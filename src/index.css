@@ -21,3 +21,7 @@ purple: #6556CD  */
   background-color: #6556cd;
   border-radius: 10px;
 }
+
+.HorizontalCards::-webkit-scrollbar {
+  display: none;
+}
