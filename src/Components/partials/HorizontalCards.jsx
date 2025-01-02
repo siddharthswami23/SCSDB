@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import DropDown from "./DropDown";
 
 const HorizontalCards = ({ data }) => {
+  const [category, setcategory] = useState("all");
+  const filteredData =
+    category === "all"
+      ? data
+      : data.filter((item) => item.media_type === category);
   return (
-    <div className="w-full h-[35vh] mt-5 ">
-      <h1 className="text-3xl font-bold px-4 py-2 mb-10 capitalize rounded-xl w-fit text-zinc-100 bg-[#6556cd]">
-        Trending
-      </h1>
+    <div className="w-full h-[35vh] relative">
+      <div className="flex items-center justify-between  py-5 px-7">
+        <h1 className="text-3xl font-bold px-4 py-2 capitalize rounded-xl w-fit text-zinc-100 bg-[#6556cd]">
+          Trending
+        </h1>
+
+        <DropDown
+          title="Filter"
+          options={[
+            { value: "tv", label: "TV" },
+            { value: "movie", label: "Movie" },
+            { value: "all", label: "All" },
+          ]}
+          onChange={(value) => setcategory(value)}
+        />
+      </div>
       <div className="HorizontalCards w-full h-[80%] flex overflow-x-auto px-5">
-        {data.map((item, index) => (
+        {filteredData.map((item, index) => (
           <div key={index} className="min-w-[15%] mr-5">
             <img
               src={`https://image.tmdb.org/t/p/original/${
