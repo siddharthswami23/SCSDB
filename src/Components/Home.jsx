@@ -4,6 +4,7 @@ import TopNav from "./partials/TopNav";
 import axios from "../utils/Axios";
 import Header from "./partials/Header";
 import HorizontalCards from "./partials/HorizontalCards";
+import Loading from "./Loading";
 
 const Home = () => {
   document.title = "SCSDB | HomePage";
@@ -34,15 +35,13 @@ const Home = () => {
     <div className="w-full h-full flex">
       <SideNav />
       <div className="w-[80%] h-full p-3">
-        <TopNav />
+        <TopNav left={19} />
         <Header WallPaper={WallPaper} />
         <HorizontalCards data={data} />
       </div>
     </div>
   ) : (
-    <div className="w-full h-full flex items-center justify-center">
-      <h1 className="text-3xl text-white">Loading...</h1>
-    </div>
+    <Loading />
   );
 };
 
