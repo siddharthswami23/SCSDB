@@ -6,15 +6,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/Axios";
 import Cards from "./partials/Cards";
 
-const Trending = () => {
+const Movie = () => {
   const navigate = useNavigate();
-  const [category, setCategory] = useState("all");
-  const [duration, setDuration] = useState("day");
+  const [category, setCategory] = useState("now_playing");
   const [data, setData] = useState(null);
 
-  const getTrendingData = async () => {
+  const getMovieData = async () => {
     try {
-      const { data } = await axios.get(`/trending/${category}/${duration}`);
+      const { data } = await axios.get(`/movie/${category}`);
       setData(data.results);
     } catch (error) {
       console.log(error);
@@ -22,8 +21,8 @@ const Trending = () => {
   };
 
   useEffect(() => {
-    getTrendingData();
-  }, [category, duration]);
+    getMovieData();
+  }, [category]);
 
   return (
     <div className="w-full h-full flex">
@@ -34,21 +33,13 @@ const Trending = () => {
             onClick={() => navigate(-1)}
             className="ri-arrow-left-line text-4xl  cursor-pointer"
           ></i>
-          <TopNav left={21} />
-          <DropDown
-            title="Duration"
-            options={[
-              { value: "day", label: "Today" },
-              { value: "week", label: "This Week" },
-            ]}
-            onChange={(value) => setDuration(value)}
-          />
+          <TopNav left={20} />
+
           <DropDown
             title="Filter"
             options={[
-              { value: "tv", label: "TV" },
-              { value: "movie", label: "Movie" },
-              { value: "all", label: "All" },
+              { value: "upcoming", label: "upcoming" },
+              { value: "now playing", label: "now_playing" },
             ]}
             onChange={(value) => setCategory(value)}
           />
@@ -61,4 +52,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Movie;
