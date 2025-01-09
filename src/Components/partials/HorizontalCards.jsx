@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
 
 const HorizontalCards = ({ data }) => {
-  const [category, setcategory] = useState("all");
+  const [category, setCategory] = useState("all");
   const filteredData =
     category === "all"
       ? data
       : data.filter((item) => item.media_type === category);
+
   return (
     <div className="w-full h-[35vh] relative">
-      <div className="flex items-center justify-between  py-5 px-7">
+      <div className="flex items-center justify-between py-5 px-7">
         <h1 className="text-3xl font-bold px-4 py-2 capitalize rounded-xl w-fit text-zinc-100 bg-[#6556cd]">
           Trending
         </h1>
@@ -22,28 +23,32 @@ const HorizontalCards = ({ data }) => {
             { value: "movie", label: "Movie" },
             { value: "all", label: "All" },
           ]}
-          onChange={(value) => setcategory(value)}
+          onChange={(value) => setCategory(value)}
         />
       </div>
       <div className="HorizontalCards w-full h-[80%] flex overflow-x-auto px-5">
         {filteredData.map((item, index) => (
           <div key={index} className="min-w-[15%] mr-5">
-            <img
-              src={`https://image.tmdb.org/t/p/original/${
-                item.backdrop_path || item.profile_path || ""
-              })`}
-              alt=""
-              className="w-full h-[55%] object-cover"
-            />
-            <h1 className="text-xl font-bold mb-3">
-              {item.name ||
-                item.title ||
-                item.original_name ||
-                item.original_title}
-            </h1>
+            <Link to={`/movies/details/${item.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/original/${
+                  item.backdrop_path || item.profile_path || ""
+                }`}
+                alt=""
+                className="w-full h-[55%] object-cover"
+              />
+              <h1 className="text-xl font-bold mb-3">
+                {item.name ||
+                  item.title ||
+                  item.original_name ||
+                  item.original_title}
+              </h1>
+            </Link>
             <p className="w-[70%] mt-5 text-lg text-white">
               {item.overview ? item.overview.slice(0, 35) : "No description"}...
-              <Link className="text-blue-600">more</Link>
+              <Link to={`/movies/details/${item.id}`} className="text-blue-600">
+                more
+              </Link>
             </p>
           </div>
         ))}

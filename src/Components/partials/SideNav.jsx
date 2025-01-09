@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const SideNav = () => {
   return (
     <div className="w-[20%] min-h-screen text-white border-r-2 border-zinc-200 p-10">
-      <h1 className="text-white text-2xl font-bold ">
+      <Link to="/" className="text-white text-2xl font-bold ">
         <i className="ri-tv-fill text-[#6556CD] mr-2"></i>
         <span>SCSDB</span>
-      </h1>
+      </Link>
       <nav className="flex flex-col gap-5 text-zinc-400 text-2xl">
         <h1 className="text-white font-bold text-2xl mt-10 nb-5">New Feeds</h1>
         <Link
