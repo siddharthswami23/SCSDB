@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Cards = ({ data }) => {
+const Cards = ({ data, title }) => {
   return (
-    <div className="w-[35vh] h-fit p-4 shadow-lg rounded-lg bg-white">
+    <Link
+      to={`/${title}/details/${data.id}`}
+      className="w-[35vh] h-fit p-4 shadow-lg rounded-lg bg-white"
+    >
       <div>
         <img
           className="w-full h-full object-cover rounded-lg"
@@ -22,14 +26,16 @@ const Cards = ({ data }) => {
           {data.title || data.name || data.original_name || "Untitled"}
         </h1>
         <p className="text-sm text-black">
-          {data.known_for_department || 
-            (data.overview ? data.overview.slice(0, 100) : "No description available")}
+          {data.known_for_department ||
+            (data.overview
+              ? data.overview.slice(0, 100)
+              : "No description available")}
           {data.overview && data.overview.length > 100 && (
             <span className="text-blue-700 cursor-pointer"> more...</span>
           )}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

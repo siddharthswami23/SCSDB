@@ -45,7 +45,10 @@ const Movie = () => {
           />
         </div>
         <div className="w-full h-fit grid grid-cols-4 gap-5 mt-5 px-5 py-3">
-          {data && data.map((item, index) => <Cards data={item} key={index} />)}
+          {data &&
+            data.map((item, index) => (
+              <Cards data={item} title="movies" key={index} />
+            ))}
         </div>
       </div>
     </div>

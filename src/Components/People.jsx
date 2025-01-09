@@ -45,7 +45,7 @@ const People = () => {
           />
         </div>
         <div className="w-full h-fit grid grid-cols-4 gap-5 mt-5 px-5 py-3">
-          {data.map((item, index) => <Cards data={item} key={index} />)}
+          {data.map((item, index) => <Cards data={item} title='people' key={index} />)}
         </div>
       </div>
     </div>

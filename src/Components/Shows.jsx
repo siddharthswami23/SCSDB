@@ -46,7 +46,10 @@ const Shows = () => {
           />
         </div>
         <div className="w-full h-auto grid grid-cols-4 gap-5 mt-5 px-5 py-3">
-          {data && data.map((item, index) => <Cards data={item} key={index} />)}
+          {data &&
+            data.map((item, index) => (
+              <Cards data={item} title='shows' key={index} />
+            ))}
         </div>
       </div>
     </div>
