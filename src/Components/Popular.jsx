@@ -27,7 +27,7 @@ const Popular = () => {
   return (
     <div className="w-full h-full flex">
       <SideNav />
-      <div className="w-[80%] px-5">
+      <div className="w-[80%] max-h-screen overflow-auto px-5">
         <div className="w-full flex items-center">
           <i
             onClick={() => navigate(-1)}
