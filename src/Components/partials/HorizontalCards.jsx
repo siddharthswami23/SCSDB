@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DropDown from "./DropDown";
+import noimg from "/Noimg.jpg";
 
 const HorizontalCards = ({ data }) => {
   const [category, setCategory] = useState("all");
@@ -27,14 +28,14 @@ const HorizontalCards = ({ data }) => {
         />
       </div>
       <div className="HorizontalCards w-full h-[80%] flex overflow-x-auto px-5">
-        {filteredData.map((item, index) => (
-          <div key={index} className="min-w-[15%] mr-5">
+        {filteredData.map((item) => (
+          <div key={item.id} className="min-w-[15%] mr-5">
             <Link to={`/${item.media_type}/details/${item.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original/${
-                  item.backdrop_path || item.profile_path || ""
+                  item.backdrop_path || item.profile_path || noimg
                 }`}
-                alt=""
+                alt="Media image"
                 className="w-full h-[55%] object-cover"
               />
               <h1 className="text-xl font-bold mb-3">
@@ -45,7 +46,8 @@ const HorizontalCards = ({ data }) => {
               </h1>
             </Link>
             <p className="w-[70%] mt-5 text-lg text-white">
-              {item.overview ? item.overview.slice(0, 35) : "No description"}...
+              {item.overview ? item.overview.slice(0, 35) : "No description"}
+              {item.overview && item.overview.length > 35 ? "..." : ""}
               <Link
                 to={`/${item.media_type}/details/${item.id}`}
                 className="text-blue-600"

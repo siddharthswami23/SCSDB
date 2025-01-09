@@ -25,7 +25,7 @@ export const asyncLoadMovie = (id) => async (dispatch) => {
     };
 
     dispatch(loadMovie(bigData));
-    console.log(bigData);
+    // console.log(bigData);
   } catch (error) {
     console.error(error);
   }
