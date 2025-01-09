@@ -29,7 +29,7 @@ const HorizontalCards = ({ data }) => {
       <div className="HorizontalCards w-full h-[80%] flex overflow-x-auto px-5">
         {filteredData.map((item, index) => (
           <div key={index} className="min-w-[15%] mr-5">
-            <Link to={`/movies/details/${item.id}`}>
+            <Link to={`/${item.media_type}/details/${item.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original/${
                   item.backdrop_path || item.profile_path || ""
@@ -46,7 +46,10 @@ const HorizontalCards = ({ data }) => {
             </Link>
             <p className="w-[70%] mt-5 text-lg text-white">
               {item.overview ? item.overview.slice(0, 35) : "No description"}...
-              <Link to={`/movies/details/${item.id}`} className="text-blue-600">
+              <Link
+                to={`/${item.media_type}/details/${item.id}`}
+                className="text-blue-600"
+              >
                 more
               </Link>
             </p>
