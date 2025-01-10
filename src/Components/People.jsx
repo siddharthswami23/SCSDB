@@ -16,7 +16,7 @@ const People = () => {
       const { data } = await axios.get(`/person/popular`);
       setData(data.results);
       const Genderdata = data.results.filter((item) => item.gender === 1);
-      console.log(Genderdata);
+      // console.log(Genderdata);
     } catch (error) {
       console.log(error);
     }

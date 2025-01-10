@@ -9,6 +9,7 @@ const MovieDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.movie);
+  console.log(info.credits);
 
   useEffect(() => {
     if (id) {
@@ -101,12 +102,14 @@ const MovieDetails = () => {
       <div className="flex gap-10">
         <Link
           to={`/movie/details/Recommendations/${id}`}
-          className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap"
+          className="p-4 rounded-md mt-10 bg-[#6556CD] w-[10vw] font-semibold text-xl whitespace-nowrap"
         >
           Recommendations
         </Link>
-        <Link 
-         className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap">
+        <Link
+          to={`/movie-actors/${id}`}
+          className="p-4 rounded-md mt-10 bg-[#6556CD] w-[10vw] font-semibold text-xl whitespace-nowrap"
+        >
           People Acted
         </Link>
       </div>

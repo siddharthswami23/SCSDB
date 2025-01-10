@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import noimg from "/Noimg.jpg";
 
 const Cards = ({ data, title }) => {
   return (
@@ -10,14 +11,13 @@ const Cards = ({ data, title }) => {
       <div>
         <img
           className="w-full h-full object-cover rounded-lg"
-          src={`https://image.tmdb.org/t/p/w500${
+          src={
             data.poster_path || data.profile_path
-          }`}
+              ? `https://image.tmdb.org/t/p/w500${data.poster_path || data.profile_path}`
+              : noimg
+          }
           alt={
-            data.title ||
-            data.name ||
-            data.original_name ||
-            "No Title Available"
+            data.title || data.name || data.original_name || "No Title Available"
           }
         />
       </div>

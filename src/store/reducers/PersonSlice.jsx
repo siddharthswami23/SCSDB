@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   info: {},
 };
 
 export const PersonSlice = createSlice({
-  name: "Person",
+  name: "person",
   initialState,
   reducers: {
     loadPerson: (state, action) => {
