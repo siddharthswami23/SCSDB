@@ -45,7 +45,7 @@ const MovieDetails = () => {
       <div className="mt-5">
         <div className="pl-5 flex gap-[12vh] text-white">
           <img
-            className="head h-[50vh] w-[35vh] object-cover  "
+            className="head h-[60vh] w-[35vh] object-cover  "
             src={`https://image.tmdb.org/t/p/original/${
               info.detail.poster_path || info.detail.backdrop_path
             }`}
@@ -73,7 +73,7 @@ const MovieDetails = () => {
               </span>
               <span className=" text-[2.3vh] font-medium -tracking-tight">
                 {" "}
-                <i class="mr-1 ri-star-line"></i> {info.detail.vote_average}
+                <i className="mr-1 ri-star-line"></i> {info.detail.vote_average}
               </span>
             </div>
 
@@ -99,11 +99,15 @@ const MovieDetails = () => {
       </div>
       <hr className="mt-20" />
       <div className="flex gap-10">
-        <Link className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap">
+        <Link
+          to={`/movie/details/Recommendations/${id}`}
+          className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap"
+        >
           Recommendations
         </Link>
-        <Link className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap">
-          Actors
+        <Link 
+         className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap">
+          People Acted
         </Link>
       </div>
     </div>

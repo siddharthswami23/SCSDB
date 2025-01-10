@@ -9,6 +9,7 @@ import People from "./Components/People";
 import MovieDetails from "./Components/MovieDetails";
 import ShowDetails from "./Components/ShowDetails";
 import PersonDetails from "./Components/PersonDetails";
+import MovieCards from "./Components/partials/MovieCards";
 
 const App = () => {
   return (
@@ -19,6 +20,10 @@ const App = () => {
         <Route path="/popular" element={<Popular />} />
         <Route path="/movies" element={<Movie />} />
         <Route path="/movie/details/:id" element={<MovieDetails />} />
+        <Route
+          path="/movie/details/Recommendations/:id"
+          element={<MovieCards />}
+        />
         <Route path="/shows" element={<Shows />} />
         <Route path="/tv/details/:id" element={<ShowDetails />} />
         <Route path="/shows/details/:id" element={<ShowDetails />} />
