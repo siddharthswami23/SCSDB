@@ -9,7 +9,7 @@ const PersonDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.person);
-  console.log(info);
+  // console.log(info);
 
   useEffect(() => {
     if (id) {

@@ -1,23 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   info: {},
 };
 
 export const ShowSlice = createSlice({
-  name: "Person",
+  name: "show",
   initialState,
   reducers: {
-    loadPerson: (state, action) => {
+    loadShow: (state, action) => {
       state.info = action.payload;
     },
-    removePerson: (state) => {
+    removeShow: (state) => {
       state.info = {};
     },
   },
 });
 
-export const { loadPerson, removePerson } = ShowSlice.actions;
+export const { loadShow, removeShow } = ShowSlice.actions;
 
 export default ShowSlice.reducer;
