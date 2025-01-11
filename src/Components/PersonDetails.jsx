@@ -82,7 +82,10 @@ const PersonDetails = () => {
           </p>
 
           <div className="flex gap-10">
-            <Link className="p-4 mt-10 bg-[#6556CD] w-[7vw] rounded-md font-semibold text-xl whitespace-nowrap">
+            <Link
+              to={`/people/details/:${id}`}
+              className="p-4 mt-10 bg-[#6556CD] w-[7vw] rounded-md font-semibold text-xl whitespace-nowrap"
+            >
               Movies
             </Link>
             <Link className="p-4 mt-10 bg-[#6556CD] w-[7vw] rounded-md font-semibold text-xl whitespace-nowrap">
