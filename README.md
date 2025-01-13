@@ -9,4 +9,4 @@ Currently, two official plugins are available:
 
 # SCSDB
 
-Visit the project [here](https://scsdbbysid.vercel.app/).
+[Visit the website](https://scsdbbysid.vercel.app/).
