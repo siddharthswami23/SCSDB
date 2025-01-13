@@ -9,12 +9,12 @@ import Loading from "../Loading";
 import SideNav from "./SideNav";
 import Cards from "./Cards";
 
-const PeopleMovies = () => {
-  const navigate = useNavigate(); 
+const PeopleTv = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.person);
-  // console.log(info);
+  console.log(info);
 
   useEffect(() => {
     if (id) {
@@ -24,6 +24,7 @@ const PeopleMovies = () => {
       dispatch(removePerson());
     };
   }, [id, dispatch]);
+
   return info.detail ? (
     <div className="w-full h-full flex">
       <SideNav />
@@ -35,10 +36,13 @@ const PeopleMovies = () => {
           ></i>
         </div>
         <div className="w-full h-fit grid grid-cols-4 gap-5 mt-5 px-5 py-3">
-          {info.movie_credits &&
-            info.movie_credits.map((item, index) => (
+          {info.tv_credits.length > 0 ? (
+            info.tv_credits.map((item, index) => (
               <Cards data={item} title="movie" key={index} />
-            ))}
+            ))
+          ) : (
+            <h1 className="text-4xl text-white">No TV Shows Found</h1>
+          )}
         </div>
       </div>
     </div>
@@ -47,4 +51,4 @@ const PeopleMovies = () => {
   );
 };
 
-export default PeopleMovies;
+export default PeopleTv;

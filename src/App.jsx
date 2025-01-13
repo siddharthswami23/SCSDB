@@ -14,6 +14,7 @@ import ShowCards from "./Components/partials/ShowCards";
 import MovieActors from "./Components/partials/MovieActors";
 import ShowActors from "./Components/partials/ShowActors";
 import PeopleMovies from "./Components/partials/PeopleMovies";
+import PeopleTv from "./Components/partials/PeopleTv";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/people" element={<People />} />
         <Route path="/people/details/:id" element={<PersonDetails />} />
         <Route path="/people-movies/:id" element={<PeopleMovies />} />
+        <Route path="/people-tv/:id" element={<PeopleTv />} />
       </Routes>
     </div>
   );

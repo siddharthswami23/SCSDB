@@ -9,7 +9,7 @@ const MovieDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.movie);
-  console.log(info.credits);
+  // console.log(info.credits);
 
   useEffect(() => {
     if (id) {
