@@ -7,6 +7,7 @@ import axios from "../utils/Axios";
 import Cards from "./partials/Cards";
 
 const Trending = () => {
+  document.title = "SCSDB | Trending";
   const navigate = useNavigate();
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");

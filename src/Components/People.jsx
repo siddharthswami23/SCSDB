@@ -8,6 +8,7 @@ import Cards from "./partials/Cards";
 import Loading from "./Loading";
 
 const People = () => {
+  document.title = "SCSDB | People";
   const navigate = useNavigate();
   const [data, setData] = useState(null);
 

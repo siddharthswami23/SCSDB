@@ -7,6 +7,7 @@ import axios from "../utils/Axios";
 import Cards from "./partials/Cards";
 
 const Movie = () => {
+  document.title = "SCSDB | Movies";
   const navigate = useNavigate();
   const [category, setCategory] = useState("now_playing");
   const [data, setData] = useState(null);
