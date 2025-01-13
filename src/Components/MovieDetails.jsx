@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { asyncLoadMovie, removeMovie } from "../store/actions/movieActions";
 import Loading from "./Loading";
+import Trailer from "./partials/Trailer";
 
 const MovieDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.movie);
-  // console.log(info.credits);
+  const [videoState, setvideoState] = useState(false);
+  // console.log(info.videos);
 
   useEffect(() => {
     if (id) {
@@ -27,8 +29,19 @@ const MovieDetails = () => {
         backgroundSize: "cover",
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
       }}
-      className="w-full min-h-screen px-[10%] py-10"
+      className="w-full min-h-screen px-[10%] py-10 relative"
     >
+      {videoState ? <Trailer videoKey={info.videos.key} /> : ""}
+      {videoState ? (
+        <i
+          onClick={() => {
+            setvideoState(false);
+          }}
+          className="ri-close-fill text-white text-7xl absolute top-10 right-10 cursor-pointer"
+        ></i>
+      ) : (
+        ""
+      )}
       <nav className="flex">
         <Link onClick={() => navigate(-1)} className="text-4xl mr-10">
           <i className="ri-arrow-left-line"></i>
@@ -111,6 +124,14 @@ const MovieDetails = () => {
           className="p-4 rounded-md mt-10 bg-[#6556CD] w-[10vw] font-semibold text-xl whitespace-nowrap"
         >
           People Acted
+        </Link>
+        <Link
+          onClick={() => {
+            setvideoState(true);
+          }}
+          className="p-4 rounded-md mt-10 bg-[#6556CD] w-[10vw] font-semibold text-xl whitespace-nowrap"
+        >
+          Watch Trailer
         </Link>
       </div>
     </div>
