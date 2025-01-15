@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Trailer from "./Trailer";
 
 const Header = ({ WallPaper }) => {
+
   // console.log(WallPaper);
   if (!WallPaper) {
     return null;
@@ -18,6 +20,7 @@ const Header = ({ WallPaper }) => {
         })`,
       }}
     >
+      
       <h1 className="w-[70%] text-5xl text-white font-bold text-left">
         {WallPaper.name ||
           WallPaper.original_name ||
@@ -36,9 +39,7 @@ const Header = ({ WallPaper }) => {
         <i className="text-yellow-500 text-2xl ri-album-fill"></i>
         {WallPaper.media_type.toUpperCase()}
       </p>
-      <Link className="p-4 rounded-sm mt-10 bg-[#6556CD] w-fit font-semibold text-xl whitespace-nowrap">
-        Watch Trailer
-      </Link>
+      
     </div>
   );
 };
